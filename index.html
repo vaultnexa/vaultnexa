@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vault Nexa | Mobile App Developers</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Professional app development agency specializing in Flutter, Kotlin, and game development. Build your MVP from $2000.">
+    <meta name="keywords" content="app development, mobile apps, Flutter, Kotlin, game development, Firebase, MVP">
+    <meta name="author" content="VaultNexa">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="VaultNexa | Mobile App Developers">
+    <meta property="og:description" content="Transform your ideas into exceptional digital experiences with our expert development team.">
+    <meta property="og:type" content="website">
+    
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="animations.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⌬</text></svg>">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#6C63FF">
+    <link rel="manifest" href="manifest.json">
+
+</head>
+<body>
+    <!-- 3D Background Canvas -->
+    <canvas id="bgCanvas"></canvas>
+    
+    <!-- Floating Particles Layer -->
+    <div class="particles-container" id="particles"></div>
+    
+    <!-- Animated Background Shapes -->
+    <div class="shape-blob"></div>
+    <div class="shape-blob two"></div>
+    <div class="shape-blob three"></div>
+    
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <div class="logo-particle"></div>
+                <div class="logo-particle"></div>
+                <div class="logo-particle"></div>
+                <div class="logo-particle"></div>
+                <div class="logo-particle"></div>
+                <span class="logo-text">VaultNexa</span>
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            <p class="loading-subtitle">Initializing Quantum Interface</p>
+        </div>
+    </div>
+    
+    <!-- Enhanced Side Navigation -->
+    <nav class="side-nav" id="sideNav">
+        <div class="nav-header">
+            <div class="nav-brand">
+                <div class="nav-logo">
+                    <span class="logo-icon">⌬</span>
+                    <span class="logo-text">VaultNexa</span>
+                </div>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <div class="nav-search">
+                <input type="text" placeholder="Search..." class="search-input">
+                <button class="search-btn" aria-label="Search">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="nav-content">
+            <div class="nav-links">
+                <a href="#home" class="nav-link active" data-tooltip="Home">
+                    <i class="fas fa-home"></i>
+                    <span class="link-text">Home</span>
+                    <span class="link-indicator"></span>
+                </a>
+                <a href="#services" class="nav-link" data-tooltip="Services">
+                    <i class="fas fa-cubes"></i>
+                    <span class="link-text">Services</span>
+                    <span class="link-indicator"></span>
+                </a>
+                <a href="#showcase" class="nav-link" data-tooltip="Showcase">
+                    <i class="fas fa-star"></i>
+                    <span class="link-text">Showcase</span>
+                    <span class="link-indicator"></span>
+                </a>
+                <a href="#process" class="nav-link" data-tooltip="Process">
+                    <i class="fas fa-sync-alt"></i>
+                    <span class="link-text">Process</span>
+                    <span class="link-indicator"></span>
+                </a>
+                <a href="#stats" class="nav-link" data-tooltip="Stats">
+                    <i class="fas fa-chart-line"></i>
+                    <span class="link-text">Stats</span>
+                    <span class="link-indicator"></span>
+                </a>
+                <a href="#pricing" class="nav-link" data-tooltip="Pricing">
+                    <i class="fas fa-tags"></i>
+                    <span class="link-text">Pricing</span>
+                    <span class="link-indicator"></span>
+                </a>
+                <a href="#contact" class="nav-link" data-tooltip="Contact">
+                    <i class="fas fa-envelope"></i>
+                    <span class="link-text">Contact</span>
+                    <span class="link-indicator"></span>
+                </a>
+            </div>
+            
+            <div class="nav-projects">
+                <h4>Recent Projects</h4>
+                <div class="project-item" data-project="medlink">
+                    <div class="project-avatar">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-name">Med-Link</span>
+                        <span class="project-status completed">Completed</span>
+                    </div>
+                </div>
+                <div class="project-item" data-project="motorspares">
+                    <div class="project-avatar">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-name">Motor Spares</span>
+                        <span class="project-status completed">Completed</span>
+                    </div>
+                </div>
+                <div class="project-item" data-project="tommyai">
+                    <div class="project-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-name">Tommy A.I</span>
+                        <span class="project-status active">In Progress</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="nav-footer">
+            <div class="user-profile">
+                <div class="user-avatar">
+                    <img src="https://ui-avatars.com/api/?name=Vault+Nexa&background=6C63FF&color=fff" alt="User Avatar">
+                </div>
+                <div class="user-info">
+                    <span class="user-name">VaultNexa Team</span>
+                    <span class="user-role">Admin</span>
+                </div>
+                <button class="user-menu" aria-label="User menu">
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+            
+            <div class="nav-actions">
+                <div class="mode-toggle" id="modeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                    <div class="toggle-ball"></div>
+                </div>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://twitter.com" class="social-link" data-tooltip="Twitter" target="_blank" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://linkedin.com" class="social-link" data-tooltip="LinkedIn" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com" class="social-link" data-tooltip="GitHub" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://dribbble.com" class="social-link" data-tooltip="Dribbble" target="_blank" aria-label="Dribbble">
+                    <i class="fab fa-dribbble"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open navigation menu">
+        <i class="fas fa-bars"></i>
+    </button>
+    
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Hero Section -->
+        <section class="hero-section" id="home">
+            <div class="hero-background">
+                <div class="floating-grid"></div>
+                <div class="pulse-ring"></div>
+                <div class="pulse-ring delay-1"></div>
+                <div class="pulse-ring delay-2"></div>
+            </div>
+            
+            <div class="hero-container">
+                <div class="hero-text">
+                    <div class="tagline animate-float">
+                        <span class="tag-dot"></span>
+                        Mobile App Development Agency
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        Transform Your Ideas Into
+                        <span class="highlight-text">Exceptional</span>
+                        Digital Experiences
+                    </h1>
+                    
+                    <p class="hero-description">
+                        We build <span class="typewriter-text" id="typewriter"></span> mobile experiences 
+                        that transform businesses and captivate users worldwide.
+                    </p>
+                    
+                    <div class="hero-buttons">
+                        <button class="btn-primary btn-sparkle" id="startProject">
+                            <span>Start Your Project</span>
+                            <i class="fas fa-bolt"></i>
+                            <div class="sparkle-container"></div>
+                        </button>
+                        <button class="btn-secondary btn-hologram" id="viewPortfolio">
+                            <span>View Portfolio</span>
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <div class="stat-number" data-count="7">0</div>
+                            <div class="stat-label">Projects Delivered</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" data-count="98">0%</div>
+                            <div class="stat-label">Client Satisfaction</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" data-count="20000">$0</div>
+                            <div class="stat-label">Average Project Value</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <!-- Single large banner image instead of stacked devices -->
+                    <div class="banner-container">
+                        <img src="vaultnexabanner.png" 
+                        alt="VaultNexa - Transform Your Digital Vision" 
+                        class="vaultnexa-banner">
+                        <!-- Animated overlay elements -->
+                        <div class="banner-overlay">
+                        </div>
+                    </div>
+                    
+                    <div class="floating-badges">
+                        <div class="badge animate-bounce">
+                            <i class="fas fa-award"></i>
+                            <span>Join our community! </span>
+                        </div>
+                        <div class="badge animate-bounce delay-1">
+                            <i class="fas fa-rocket"></i>
+                            <span>6-Week MVP Delivery</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <span>Scroll to explore</span>
+            </div>
+        </section>
+        
+        <!-- Services Section -->
+        <section class="services-section" id="services">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-decorator"></span>
+                    <span>Our Superpowers</span>
+                </h2>
+                <p class="section-subtitle">Transform your ideas into exceptional digital experiences</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Service Card 1: Flutter Development -->
+                <div class="service-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="card-icon">
+                                <i class="fab fa-flutter"></i>
+                            </div>
+                            <h3>Flutter Development</h3>
+                            <p>Cross-platform apps with single codebase for iOS and Android</p>
+                            <div class="card-tech">
+                                <span>Dart</span>
+                                <span>Firebase</span>
+                                <span>Bloc</span>
+                                <span>GetX</span>
+                            </div>
+                            <div class="card-price-badge">
+                                <span class="price-from">From $2,000</span>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Flutter Development</h3>
+                            <div class="pricing-tiers">
+                                <div class="pricing-tier">
+                                    <h5>Basic MVP</h5>
+                                    <div class="price">$2,000 - $5,000</div>
+                                    <ul>
+                                        <li>Up to 5 screens</li>
+                                        <li>Firebase integration</li>
+                                        <li>Basic UI/UX design</li>
+                                        <li>3-month support</li>
+                                    </ul>
+                                </div>
+                                <div class="pricing-tier">
+                                    <h5>Advanced App</h5>
+                                    <div class="price">$5,000 - $12,000</div>
+                                    <ul>
+                                        <li>Unlimited screens</li>
+                                        <li>Custom animations</li>
+                                        <li>Payment integration</li>
+                                        <li>6-month support</li>
+                                        <li>Admin dashboard</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <button class="card-btn" data-service="flutter">Get Quote</button>
+                        </div>
+                    </div>
+                    <div class="card-glow"></div>
+                </div>
+                
+                <!-- Service Card 2: Kotlin Development -->
+                <div class="service-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="card-icon">
+                                <i class="fab fa-android"></i>
+                            </div>
+                            <h3>Kotlin Development</h3>
+                            <p>Native Android apps with superior performance and smooth animations</p>
+                            <div class="card-tech">
+                                <span>Kotlin</span>
+                                <span>Jetpack</span>
+                                <span>Room DB</span>
+                                <span>Coroutines</span>
+                            </div>
+                            <div class="card-price-badge">
+                                <span class="price-from">From $3,500</span>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Kotlin Development</h3>
+                            <div class="pricing-tiers">
+                                <div class="pricing-tier">
+                                    <h5>Basic Android App</h5>
+                                    <div class="price">$3,500 - $7,000</div>
+                                    <ul>
+                                        <li>Material Design 3</li>
+                                        <li>Local database</li>
+                                        <li>API integration</li>
+                                        <li>4-month support</li>
+                                    </ul>
+                                </div>
+                                <div class="pricing-tier">
+                                    <h5>Enterprise Android</h5>
+                                    <div class="price">$7,000 - $15,000</div>
+                                    <ul>
+                                        <li>Custom architecture</li>
+                                        <li>Offline functionality</li>
+                                        <li>Background services</li>
+                                        <li>Advanced security</li>
+                                        <li>1-year support</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <button class="card-btn" data-service="kotlin">Get Quote</button>
+                        </div>
+                    </div>
+                    <div class="card-glow"></div>
+                </div>
+                
+                <!-- Service Card 3: Game Development -->
+                <div class="service-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="card-icon">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <h3>Game Development</h3>
+                            <p>2D/3D games with engaging mechanics and stunning graphics</p>
+                            <div class="card-tech">
+                                <span>Unity</span>
+                                <span>C#</span>
+                                <span>Blender</span>
+                                <span>AR/VR</span>
+                            </div>
+                            <div class="card-price-badge">
+                                <span class="price-from">From $5,000</span>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Game Development</h3>
+                            <div class="pricing-tiers">
+                                <div class="pricing-tier">
+                                    <h5>Casual 2D Game</h5>
+                                    <div class="price">$5,000 - $10,000</div>
+                                    <ul>
+                                        <li>Simple mechanics</li>
+                                        <li>Basic graphics</li>
+                                        <li>Mobile optimization</li>
+                                        <li>App Store deployment</li>
+                                    </ul>
+                                </div>
+                                <div class="pricing-tier">
+                                    <h5>3D Adventure Game</h5>
+                                    <div class="price">$15,000 - $30,000</div>
+                                    <ul>
+                                        <li>Complex 3D world</li>
+                                        <li>Custom animations</li>
+                                        <li>Multiplayer support</li>
+                                        <li>Cross-platform</li>
+                                        <li>Monetization system</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <button class="card-btn" data-service="game">Get Quote</button>
+                        </div>
+                    </div>
+                    <div class="card-glow"></div>
+                </div>
+            </div>
+            
+            <div class="services-cta">
+                <p>All prices are starting estimates. Contact us for a detailed custom quote based on your specific requirements.</p>
+                <a href="#contact" class="btn-primary">
+                    <span>Get Custom Quote</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </section>
+        
+        <!-- Showcase Section - FIXED SINGLE SCREENS -->
+        <section class="showcase-section" id="showcase">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-decorator"></span>
+                    <span>Featured Work</span>
+                </h2>
+                <p class="section-subtitle">Explore our portfolio of groundbreaking mobile applications</p>
+            </div>
+            
+            <div class="showcase-container">
+                <div class="showcase-carousel">
+                    <div class="carousel-track" id="carouselTrack">
+                        <!-- Project 1: Med-Link -->
+                        <div class="project-slide active">
+                            <div class="project-content">
+                                <div class="project-info">
+                                    <div class="project-badge">Healthcare</div>
+                                    <h3>Med-Link E-Pharmacy</h3>
+                                    <div class="project-stats">
+                                        <span><i class="fas fa-download"></i> 50K+ Downloads</span>
+                                        <span><i class="fas fa-star"></i> 4.8 Rating</span>
+                                        <span><i class="fas fa-dollar-sign"></i> $120K Revenue</span>
+                                    </div>
+                                    <p>A revolutionary e-pharmacy platform for buying medication, processing prescriptions, symptoms checking, and telemedicine consultations.</p>
+                                    <div class="project-tech">
+                                        <span>Flutter</span>
+                                        <span>Firebase</span>
+                                        <span>Node.js</span>
+                                        <span>Stripe API</span>
+                                        <span>AI/ML</span>
+                                    </div>
+                                    <div class="project-platforms">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="App Store" class="platform-logo">
+                                    </div>
+                                    <div class="project-price">
+                                        <strong>Development Cost:</strong> $25,000
+                                    </div>
+                                    <button class="project-btn" data-project="medlink">View Demo</button>
+                                </div>
+                                <div class="project-preview">
+                                    <div class="showcase-phone-frame">
+                                        <div class="phone-screen" id="medlinkScreen">
+                                            <!-- Single screenshot will be loaded here -->
+                                        </div>
+                                    </div>
+                                    <div class="app-name-badge">Med-Link</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Project 2: Motor Spares -->
+                        <div class="project-slide">
+                            <div class="project-content">
+                                <div class="project-info">
+                                    <div class="project-badge">Automotive</div>
+                                    <h3>Motor Spares Hub</h3>
+                                    <div class="project-stats">
+                                        <span><i class="fas fa-download"></i> 30K+ Downloads</span>
+                                        <span><i class="fas fa-star"></i> 4.7 Rating</span>
+                                        <span><i class="fas fa-dollar-sign"></i> $85K Revenue</span>
+                                    </div>
+                                    <p>Central marketplace for motor vehicle spares and parts. Buyers and sellers connect seamlessly with real-time inventory and secure payments.</p>
+                                    <div class="project-tech">
+                                        <span>Kotlin</span>
+                                        <span>Firebase</span>
+                                        <span>MongoDB</span>
+                                        <span>Razorpay</span>
+                                        <span>Google Maps</span>
+                                    </div>
+                                    <div class="project-platforms">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="App Store" class="platform-logo">
+                                    </div>
+                                    <div class="project-price">
+                                        <strong>Development Cost:</strong> $18,000
+                                    </div>
+                                    <button class="project-btn" data-project="motorspares">View Demo</button>
+                                </div>
+                                <div class="project-preview">
+                                    <div class="showcase-phone-frame">
+                                        <div class="phone-screen" id="motorsparesScreen">
+                                            <!-- Single screenshot will be loaded here -->
+                                        </div>
+                                    </div>
+                                    <div class="app-name-badge">Motor Spares</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Project 3: Tommy A.I -->
+                        <div class="project-slide">
+                            <div class="project-content">
+                                <div class="project-info">
+                                    <div class="project-badge">Artificial Intelligence</div>
+                                    <h3>Tommy A.I Booking System</h3>
+                                    <div class="project-stats">
+                                        <span><i class="fas fa-download"></i> 25K+ Downloads</span>
+                                        <span><i class="fas fa-star"></i> 4.9 Rating</span>
+                                        <span><i class="fas fa-dollar-sign"></i> $95K Revenue</span>
+                                    </div>
+                                    <p>AI-powered booking and reservation system that helps users find the best options across multiple platforms quickly with ML predictions.</p>
+                                    <div class="project-tech">
+                                        <span>React Native</span>
+                                        <span>Python</span>
+                                        <span>TensorFlow</span>
+                                        <span>PostgreSQL</span>
+                                        <span>Redis</span>
+                                    </div>
+                                    <div class="project-platforms">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="App Store" class="platform-logo">
+                                    </div>
+                                    <div class="project-price">
+                                        <strong>Development Cost:</strong> $32,000
+                                    </div>
+                                    <button class="project-btn" data-project="tommyai">View Demo</button>
+                                </div>
+                                <div class="project-preview">
+                                    <div class="showcase-phone-frame">
+                                        <div class="phone-screen" id="tommyaiScreen">
+                                            <!-- Single screenshot will be loaded here -->
+                                        </div>
+                                    </div>
+                                    <div class="app-name-badge">Tommy A.I</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Project 4: Vision A.I -->
+                        <div class="project-slide">
+                            <div class="project-content">
+                                <div class="project-info">
+                                    <div class="project-badge">Health Tech</div>
+                                    <h3>Vision A.I Eye Health</h3>
+                                    <div class="project-stats">
+                                        <span><i class="fas fa-download"></i> 40K+ Downloads</span>
+                                        <span><i class="fas fa-star"></i> 4.8 Rating</span>
+                                        <span><i class="fas fa-dollar-sign"></i> $150K Revenue</span>
+                                    </div>
+                                    <p>Comprehensive eye health system featuring vision testing, optometrist booking, eye sight training, and AI-powered recommendations.</p>
+                                    <div class="project-tech">
+                                        <span>Flutter</span>
+                                        <span>Firebase</span>
+                                        <span>OpenCV</span>
+                                        <span>TensorFlow Lite</span>
+                                        <span>WebRTC</span>
+                                    </div>
+                                    <div class="project-platforms">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="App Store" class="platform-logo">
+                                    </div>
+                                    <div class="project-price">
+                                        <strong>Development Cost:</strong> $28,000
+                                    </div>
+                                    <button class="project-btn" data-project="visionai">View Demo</button>
+                                </div>
+                                <div class="project-preview">
+                                    <div class="showcase-phone-frame">
+                                        <div class="phone-screen" id="visionaiScreen">
+                                            <!-- Single screenshot will be loaded here -->
+                                        </div>
+                                    </div>
+                                    <div class="app-name-badge">Vision A.I</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-controls">
+                        <button class="carousel-btn prev-btn" aria-label="Previous project">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="carousel-dots">
+                            <span class="dot active" aria-label="Go to Med-Link project"></span>
+                            <span class="dot" aria-label="Go to Motor Spares project"></span>
+                            <span class="dot" aria-label="Go to Tommy A.I project"></span>
+                            <span class="dot" aria-label="Go to Vision A.I project"></span>
+                        </div>
+                        <button class="carousel-btn next-btn" aria-label="Next project">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Process Section -->
+        <section class="process-section" id="process">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-decorator"></span>
+                    <span>Our Process</span>
+                </h2>
+                <p class="section-subtitle">A streamlined approach to delivering exceptional results</p>
+            </div>
+            
+            <div class="process-timeline">
+                <div class="timeline-track">
+                    <!-- Step 1 -->
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div class="step-connector"></div>
+                        <div class="step-content">
+                            <h3>Discovery & Strategy</h3>
+                            <p>We understand your vision, target audience, and business goals</p>
+                            <div class="step-duration">1-2 Weeks</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div class="step-connector"></div>
+                        <div class="step-content">
+                            <h3>UI/UX Design</h3>
+                            <p>Creating intuitive and beautiful user interfaces</p>
+                            <div class="step-duration">2-3 Weeks</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div class="step-connector"></div>
+                        <div class="step-content">
+                            <h3>Development</h3>
+                            <p>Agile development with weekly progress updates</p>
+                            <div class="step-duration">4-8 Weeks</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 4 -->
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <div class="step-connector"></div>
+                        <div class="step-content">
+                            <h3>Testing & QA</h3>
+                            <p>Comprehensive testing across all devices and platforms</p>
+                            <div class="step-duration">1-2 Weeks</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 5 -->
+                    <div class="process-step">
+                        <div class="step-number">5</div>
+                        <div class="step-connector"></div>
+                        <div class="step-content">
+                            <h3>Deployment</h3>
+                            <p>App Store & Play Store submission and launch</p>
+                            <div class="step-duration">1 Week</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 6 -->
+                    <div class="process-step">
+                        <div class="step-number">6</div>
+                        <div class="step-connector"></div>
+                        <div class="step-content">
+                            <h3>Support & Maintenance</h3>
+                            <p>Ongoing support, updates, and feature enhancements</p>
+                            <div class="step-duration">Ongoing</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="process-note">
+                    <p><strong>Note:</strong> Typical project timeline is 8-12 weeks from concept to launch.</p>
+                    <p>We offer flexible engagement models: Fixed Price, Time & Materials, or Dedicated Team.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Stats Section -->
+        <section class="stats-section" id="stats">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-decorator"></span>
+                    <span>By The Numbers</span>
+                </h2>
+                <p class="section-subtitle">Our track record of success speaks for itself</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="stat-number" data-count="7">0</div>
+                    <div class="stat-label">Projects Delivered</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-number" data-count="15">0K+</div>
+                    <div class="stat-label">Active Users</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="stat-number" data-count="98">0%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-number" data-count="2">0</div>
+                    <div class="stat-label">Weeks Average MVP Time</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Pricing Section -->
+        <section class="pricing-section" id="pricing">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-decorator"></span>
+                    <span>Transparent Pricing</span>
+                </h2>
+                <p class="section-subtitle">Choose the plan that fits your needs and budget</p>
+            </div>
+            
+            <div class="pricing-cards">
+                <!-- MVP Package -->
+                <div class="pricing-card">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3>MVP Package</h3>
+                        <div class="price">$2,000+</div>
+                        <p class="price-subtitle">Perfect for startups & testing ideas</p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Up to 10 screens</li>
+                            <li><i class="fas fa-check"></i> Basic UI/UX design</li>
+                            <li><i class="fas fa-check"></i> Firebase backend</li>
+                            <li><i class="fas fa-check"></i> App Store submission</li>
+                            <li><i class="fas fa-check"></i> 3 months support</li>
+                            <li><i class="fas fa-check"></i> Basic analytics</li>
+                            <li><i class="fas fa-check"></i> 6 weeks delivery</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-footer">
+                        <a href="#contact" class="btn-primary" data-package="mvp">
+                            <span>Get MVP Quote</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Full Development -->
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Recommended</div>
+                    <div class="pricing-header">
+                        <h3>Full Development</h3>
+                        <div class="price">$5,000+</div>
+                        <p class="price-subtitle">Complete solution for growing businesses</p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Everything in MVP +</li>
+                            <li><i class="fas fa-check"></i> Custom UI/UX design</li>
+                            <li><i class="fas fa-check"></i> Custom backend (Node.js)</li>
+                            <li><i class="fas fa-check"></i> Payment integration</li>
+                            <li><i class="fas fa-check"></i> 6 months support</li>
+                            <li><i class="fas fa-check"></i> Advanced analytics</li>
+                            <li><i class="fas fa-check"></i> Admin dashboard</li>
+                            <li><i class="fas fa-check"></i> 8-10 weeks delivery</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-footer">
+                        <a href="#contact" class="btn-primary" data-package="full">
+                            <span>Get Full Quote</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Enterprise -->
+                <div class="pricing-card">
+                    <div class="pricing-badge">Enterprise</div>
+                    <div class="pricing-header">
+                        <h3>Enterprise Solution</h3>
+                        <div class="price">$25,000+</div>
+                        <p class="price-subtitle">For large-scale, complex applications</p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Everything in Full +</li>
+                            <li><i class="fas fa-check"></i> Multi-platform (iOS, Android, Web)</li>
+                            <li><i class="fas fa-check"></i> Advanced security features</li>
+                            <li><i class="fas fa-check"></i> Real-time features</li>
+                            <li><i class="fas fa-check"></i> 1 year support & maintenance</li>
+                            <li><i class="fas fa-check"></i> Custom AI/ML integration</li>
+                            <li><i class="fas fa-check"></i> Team training & documentation</li>
+                            <li><i class="fas fa-check"></i> Dedicated project manager</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-footer">
+                        <a href="#contact" class="btn-primary" data-package="enterprise">
+                            <span>Contact for Quote</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pricing-note">
+                <p><i class="fas fa-info-circle"></i> All prices are starting estimates. Final quote depends on specific requirements.</p>
+                <p><i class="fas fa-sync-alt"></i> We offer flexible payment plans: 50% upfront, 25% midway, 25% on delivery.</p>
+                <p><i class="fas fa-shield-alt"></i> 100% satisfaction guarantee or your money back within 30 days.</p>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-decorator"></span>
+                    <span>Get In Touch</span>
+                </h2>
+                <p class="section-subtitle">Ready to transform your idea into reality? Let's talk!</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <h3><i class="fas fa-envelope"></i> Email</h3>
+                        <p>For project inquiries and quotes</p>
+                        <a href="mailto:vault.nexa@gmail.com" class="contact-link">vault.nexa@gmail.com</a>
+                        <p class="contact-note">Response time: Within 24 hours</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <h3><i class="fas fa-phone"></i> Phone & WhatsApp</h3>
+                        <p>For urgent inquiries and calls</p>
+                        <a href="tel:+27765137799" class="contact-link">(+27) 76 513 7799</a>
+                        <p class="contact-note">Available: Mon-Fri, 9AM-6PM SAST</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <h3><i class="fas fa-map-marker-alt"></i> Address</h3>
+                        <p><strong>We work fully remote</strong></p>
+                        <p>For postal/fax correspondence:</p>
+                        <p>7 Alon Road, Morningside<br>
+                        Sandton, Johannesburg<br>
+                        Gauteng, South Africa, 2196</p>
+                    </div>
+                    
+                    <div class="contact-hours">
+                        <h4><i class="fas fa-clock"></i> Business Hours</h4>
+                        <p><strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM SAST</p>
+                        <p><strong>Saturday:</strong> 10:00 AM - 2:00 PM SAST</p>
+                        <p><strong>Sunday:</strong> Closed</p>
+                        <p><strong>Emergency Support:</strong> Available 24/7 for existing clients</p>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <div class="form-header">
+                        <h3>Request a Quote</h3>
+                        <p>Fill out the form below and we'll get back to you within 24 hours</p>
+                    </div>
+                    
+                    <form id="quoteForm" class="quote-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required placeholder="John Smith">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required placeholder="john@example.com">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="projectType">Project Type *</label>
+                                <select id="projectType" name="projectType" required>
+                                    <option value="">Select project type</option>
+                                    <option value="flutter">Flutter App</option>
+                                    <option value="kotlin">Kotlin Android App</option>
+                                    <option value="game">Game Development</option>
+                                    <option value="web">Web Application</option>
+                                    <option value="full-stack">Full Stack Solution</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="budget">Estimated Budget *</label>
+                                <select id="budget" name="budget" required>
+                                    <option value="">Select budget range</option>
+                                    <option value="2000-5000">$2,000 - $5,000</option>
+                                    <option value="5000-12000">$5,000 - $12,000</option>
+                                    <option value="12000-25000">$12,000 - $25,000</option>
+                                    <option value="25000+">$25,000+</option>
+                                    <option value="not-sure">Not sure yet</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="timeline">Project Timeline *</label>
+                            <select id="timeline" name="timeline" required>
+                                <option value="">Select timeline</option>
+                                <option value="asap">ASAP (1-3 months)</option>
+                                <option value="3-6">3-6 months</option>
+                                <option value="6-12">6-12 months</option>
+                                <option value="flexible">Flexible</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="description">Project Description *</label>
+                            <textarea id="description" name="description" rows="5" required placeholder="Tell us about your project, goals, target audience, and any specific features you need..."></textarea>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="submit-btn" id="whatsappSubmit">
+                                <span>Submit to WhatsApp</span>
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                            <p class="form-note">By submitting, you agree to our Privacy Policy. We'll never share your information.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">VaultNexa</div>
+                    <p class="footer-tagline">Transforming ideas into exceptional digital experiences. We specialize in mobile app development that drives business growth and user engagement.</p>
+                    <div class="footer-certifications">
+                        <span class="cert-badge"><i class="fas fa-shield-alt"></i> Secure Development</span>
+                        <span class="cert-badge"><i class="fas fa-clock"></i> 24/7 Support</span>
+                        <span class="cert-badge"><i class="fas fa-award"></i> Quality Guaranteed</span>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <a href="#services">Flutter Development</a>
+                        <a href="#services">Kotlin Development</a>
+                        <a href="#services">Game Development</a>
+                        <a href="#services">UI/UX Design</a>
+                        <a href="#services">App Maintenance</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <a href="#home">Home</a>
+                        <a href="#services">Services</a>
+                        <a href="#showcase">Portfolio</a>
+                        <a href="#process">Process</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <a href="#pricing">Pricing</a>
+                        <a href="#process">Development Timeline</a>
+                        <a href="#" onclick="showNotification('Coming Soon', 'Blog section coming soon!', 'info')">Blog</a>
+                        <a href="#" onclick="showNotification('Coming Soon', 'Case studies coming soon!', 'info')">Case Studies</a>
+                        <a href="#contact">Support</a>
+                    </div>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Connect With Us</h4>
+                    <div class="social-icons">
+                        <a href="https://twitter.com" class="social-icon" target="_blank" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://linkedin.com" class="social-icon" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com" class="social-icon" target="_blank" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://dribbble.com" class="social-icon" target="_blank" aria-label="Dribbble">
+                            <i class="fab fa-dribbble"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 VaultNexa. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#" onclick="showNotification('Privacy Policy', 'Our privacy policy is available upon request.', 'info')">Privacy Policy</a>
+                    <a href="#" onclick="showNotification('Terms of Service', 'Our terms of service are available upon request.', 'info')">Terms of Service</a>
+                    <a href="#" onclick="showNotification('Cookie Policy', 'We use cookies to improve your experience.', 'info')">Cookie Policy</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+    
+    <!-- Notification Toast -->
+    <div class="toast-container" id="toastContainer"></div>
+    
+    <!-- Premium App Detail Modal -->
+    <div class="app-modal" id="appModal">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <div class="modal-header-content">
+                    <h3 id="modalAppTitle">App Details</h3>
+                    <div class="modal-tags" id="modalAppTags"></div>
+                </div>
+                <button class="modal-close" id="modalClose" aria-label="Close modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <!-- Left Column: App Screenshots Carousel -->
+                <div class="modal-left-column">
+                    <div class="premium-carousel">
+                        <div class="carousel-container">
+                            <div class="carousel-track" id="appCarouselTrack">
+                                <!-- Screenshots will be dynamically added here -->
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-navigation">
+                            <button class="carousel-nav-btn prev-btn" aria-label="Previous screenshot">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <div class="carousel-indicator" id="appCarouselIndicator">
+                                <span class="current-slide">1</span>
+                                <span class="separator">/</span>
+                                <span class="total-slides">3</span>
+                            </div>
+                            <button class="carousel-nav-btn next-btn" aria-label="Next screenshot">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="screenshot-info">
+                            <div class="device-badge">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>App Screenshots</span>
+                            </div>
+                            <p class="screenshot-hint">Scroll or use arrows to view more screens</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Investment Highlights -->
+                    <div class="investment-highlights" id="investmentHighlights">
+                        <h4><i class="fas fa-chart-line"></i> Investment Potential</h4>
+                        <div class="highlight-grid">
+                            <!-- Will be populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column: App Details -->
+                <div class="modal-right-column">
+                    <!-- App Stats -->
+                    <div class="app-stats-card">
+                        <h4><i class="fas fa-trophy"></i> Estimated Performance Metrics</h4>
+                        <div class="stats-grid" id="modalAppStats">
+                            <!-- Will be populated dynamically -->
+                        </div>
+                    </div>
+                    
+                    <!-- App Description -->
+                    <div class="app-description-card">
+                        <h4><i class="fas fa-info-circle"></i> About This App</h4>
+                        <div class="description-content" id="modalAppDescription">
+                            <!-- Will be populated dynamically -->
+                        </div>
+                    </div>
+                    
+                    <!-- Key Features -->
+                    <div class="features-card">
+                        <h4><i class="fas fa-star"></i> Key Features</h4>
+                        <ul class="features-list" id="modalAppFeatures">
+                            <!-- Will be populated dynamically -->
+                        </ul>
+                    </div>
+                    
+                    <!-- Technology Stack -->
+                    <div class="tech-stack-card">
+                        <h4><i class="fas fa-code"></i> Technology Stack</h4>
+                        <div class="tech-tags" id="modalAppTech">
+                            <!-- Will be populated dynamically -->
+                        </div>
+                    </div>
+                    
+                    <!-- Call to Action -->
+                    <div class="modal-cta">
+                        <div class="cta-content">
+                            <h4>Interested in this project?</h4>
+                            <p>Get a detailed proposal with investment breakdown and ROI analysis</p>
+                            <div class="cta-buttons">
+                                <button class="btn-primary btn-demo" id="requestDemoBtn">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span>Request Live Demo</span>
+                                </button>
+                                <button class="btn-secondary btn-proposal" id="requestProposalBtn">
+                                    <i class="fas fa-file-alt"></i>
+                                    <span>Get Investment Proposal</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <div class="footer-content">
+                    <div class="contact-info">
+                        <i class="fas fa-clock"></i>
+                        <span>Response time: <strong>Within 2 hours</strong></span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>Call us: <strong>+27 76 513 7799</strong></span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email: <strong>vault.nexa@gmail.com</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/TextPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="main.js"></script>
+
+</body>
+</html>
